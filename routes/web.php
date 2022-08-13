@@ -21,6 +21,10 @@ Route::get('chat',function(){
     return view('chat');
 });
 
+// chatにアクセスした際に、認証するよう設定
+Route::group(['prefix'=>'/','middleware'=>'auth'],function(){
+    Route::get('chat',[App\Http\Controllers\ChatController::class,'chat']);
+});
 
 Auth::routes();
 
