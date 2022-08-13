@@ -11,7 +11,7 @@
 
 [Laravel 8.x アセットのコンパイル（Mix）](https://readouble.com/laravel/8.x/ja/mix.html)
 
-## つまづきポイント(序盤はnpm installの依存関係で四苦八苦・・・)
+## つまづきポイント(序盤はnpmの依存関係で苦戦・・・)
 ### nodeのバージョンアップ(bootstrapの最新版がnode v16以上だった。)
 [こちらを参考に](https://qiita.com/k3ntar0/items/322e668468716641aa5c)
 
@@ -38,4 +38,20 @@ v2.6の場合は、Vueをインストールする際に下の操作が必要だ�
 ### コンポーネントのファイルの格納場所はresources/js/components/Message.vue
 ブログ中では、jsが抜けているので注意
 
+------------------
+## 学習用＠技術メモ
+### Event to Broadcast #3
+ [Pusher Channels公式ドキュメント](https://laravel.com/docs/8.x/broadcasting#pusher-channels)
+ > If you plan to broadcast your events using Pusher Channels, you should install the Pusher Channels PHP SDK using the Composer package manager:
 
+> Pusher Channels を使ってイベントを配信する場合は、Composer パッケージマネージャを使用して Pusher Channels PHP SDK をインストールする必要があります。
+
+イベントの仕組みはLaravelにも実装されている。
+イベントを発行することで、そのイベントを受け取る側の処理を呼び出し、実行させることができる。
+
+イベントを利用するためには、EventServiceProviderを使用。
+EventServiceProviderは、イベントを管理する専用のサービスプロバイダ。$listenプロパティにイベントのリッスンの設定をまとめている。ここに独自のイベントクラスとイベントリスナークラスの情報を追記すれば、それをもとにクラスを生成できる。
+
+イベントの作成は、下記コマンドで行った。
+`php artisan event:generate`
+これで、$listenに登録した情報をもとに、イベントとイベントリスナーのスクリプトが自動生成される。
