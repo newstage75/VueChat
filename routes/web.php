@@ -26,6 +26,8 @@ Route::group(['prefix'=>'/','middleware'=>'auth'],function(){
     Route::get('chat',[App\Http\Controllers\ChatController::class,'chat']);
 });
 
+Route::get('send', [App\Http\Controllers\ChatController::class,'send']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
