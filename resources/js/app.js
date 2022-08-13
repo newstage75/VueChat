@@ -6,6 +6,11 @@
 
 require('./bootstrap');
 
+// スクロール追従機能の実装（vue-char-scroll）
+import Vue from 'vue'
+import VueChatScroll from 'vue-chat-scroll'
+Vue.use(VueChatScroll)
+
 window.Vue = require('vue').default;
 
 /**
