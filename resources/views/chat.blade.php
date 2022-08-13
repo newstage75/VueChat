@@ -20,7 +20,7 @@
             <h1>Chat room</h1>
             <div class="offset-4 col-md-4">
                 <li class="list-group-item active">Chat</li>
-                <ul class="list-group">
+                <ul class="list-group" v-chat-scroll>
                     <message v-for="value in chat.message">
                         @{{value}}
                     </message>
