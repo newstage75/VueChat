@@ -33,3 +33,9 @@ Additional dependencies must be installed. This will only take a moment.
 v2.6の場合は、Vueをインストールする際に下の操作が必要だった。
 `npm install vue@2.6 --save-dev`~~
 ### Laravel8で実装し直したので行わず。
+
+
+### コンポーネントのファイルの格納場所はresources/js/components/Message.vue
+ブログ中では、jsが抜けているので注意
+
+
