@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" id="app">
             <h1>Chat room</h1>
             <div class="offset-4 col-md-4">
                 <li class="list-group-item active">Chat</li>
@@ -25,8 +25,7 @@
                         @{{value}}
                     </message>
                 </ul>
-                <input type="text" class="form-control" placeholder="Type your message here..." v-model="message" @keyup.enter="send">
-            </div>
+                <input type="text" class="form-control" placeholder="Type your message here.." v-model='message' @keyup.enter='send'>            </div>
         </div>
     </div>
 
