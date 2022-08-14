@@ -59,3 +59,6 @@ EventServiceProviderは、イベントを管理する専用のサービスプロ
 イベントの作成は、下記コマンドで行った。
 `php artisan event:generate`
 これで、$listenに登録した情報をもとに、イベントとイベントリスナーのスクリプトが自動生成される。
+
+### Pusherとは
+> PusherとはWebサービスの1つで、WebSocketを使ってリアルタイムかつ両方向の通信機能をWebサイトやモバイルアプリに組み込むサービスです。
