@@ -5342,11 +5342,9 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("li", {
-    staticClass: "list-group-item",
-    "class": _vm.className
+    staticClass: "list-group-item"
   }, [_vm._t("default")], 2), _vm._v(" "), _c("small", {
-    staticClass: "float-right",
-    "class": _vm.className
+    staticClass: "float-right"
   }, [_vm._v(_vm._s(_vm.user))])]);
 };
 
@@ -5379,23 +5377,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // スク
 
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].use((vue_chat_scroll__WEBPACK_IMPORTED_MODULE_0___default()));
 window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js")["default"]);
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('message', (__webpack_require__(/*! ./components/Message.vue */ "./resources/js/components/Message.vue")["default"]));
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
   el: '#app',
   data: {

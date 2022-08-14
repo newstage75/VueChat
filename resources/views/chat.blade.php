@@ -17,11 +17,11 @@
 <body>
     <div class="container">
         <div class="row" id="app">
-            <h1>Chat room</h1>
+            <h1 class="mt-2">Chat room</h1>
             <div class="offset-4 col-md-4">
                 <li class="list-group-item active">Chat</li>
                 <ul class="list-group" v-chat-scroll>
-                    <message v-for="value in chat.message" :key=value.index :color=chat.color[index] :user=chat.user[index]>
+                    <message v-for="value,index in chat.message" :key=value.index :color=chat.color[index] :user=chat.user[index]>
                         @{{value}}
                     </message>
                 </ul>

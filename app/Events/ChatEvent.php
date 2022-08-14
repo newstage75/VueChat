@@ -28,14 +28,9 @@ class ChatEvent implements ShouldBroadcast
         $this->user = $user->name;
         $this->dontBroadcastToCurrentUser();
     }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
+  
     public function broadcastOn()
     {
-        return new PrivateChannel('chat');
+     return new PrivateChannel('chat');
     }
 }
