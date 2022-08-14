@@ -5314,6 +5314,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    'color': {},
+    'user': {}
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -5337,9 +5341,13 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("li", {
-    staticClass: "list-group-item"
-  }, [_vm._t("default")], 2);
+  return _c("div", [_c("li", {
+    staticClass: "list-group-item",
+    "class": _vm.className
+  }, [_vm._t("default")], 2), _vm._v(" "), _c("small", {
+    staticClass: "float-right",
+    "class": _vm.className
+  }, [_vm._v(_vm._s(_vm.user))])]);
 };
 
 var staticRenderFns = [];
@@ -5393,16 +5401,43 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
   data: {
     message: '',
     chat: {
-      message: []
+      message: [],
+      user: [],
+      color: []
     }
   },
   methods: {
     send: function send() {
+      var _this = this;
+
       if (this.message.length != 0) {
+        //console.log(this.message);
         this.chat.message.push(this.message);
-        this.message = '';
+        this.chat.color.push('success');
+        this.chat.user.push('you');
+        axios.post('/send', {
+          message: this.message
+        }).then(function (response) {
+          console.log(response);
+          _this.message = '';
+        })["catch"](function (error) {
+          console.log(error);
+        });
       }
     }
+  },
+  mounted: function mounted() {
+    var _this2 = this;
+
+    window.Echo["private"]('chat').listen('ChatEvent', function (e) {
+      _this2.chat.message.push(e.message);
+
+      _this2.chat.user.push(e.user);
+
+      _this2.chat.color.push('warning');
+
+      console.log(e);
+    });
   }
 });
 
