@@ -16,20 +16,20 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="row" id="app">
-            <h1 class="mt-2">Chat room</h1>
-            <div class="offset-4 col-md-4">
-                <li class="list-group-item bg-info p-3 my-3">Chat</li>
-                <ul class="list-group" v-chat-scroll>
-                    <message v-for="value,index in chat.message" :key=value.index :color=chat.color[index] :user=chat.user[index]>
-                        @{{value}}
-                    </message>
-                </ul>
-                <input type="text" class="form-control" placeholder="Type your message here.." v-model='message' @keyup.enter='send'>            </div>
-        </div>
-    </div>
-
-    <script src="{{asset('js/app.js')}}"></script>
+ <div class="container">
+  <div class="row" id="app">
+   <h1>Chat room</h1>
+   <div class="offset-2 col-md-4">
+    <li class="list-group-item active">Chat</li>
+    <ul class="list-group" v-chat-scroll>
+     <message v-for="value,index in chat.message" :key=value.index :color=chat.color[index] :user=chat.user[index]>
+      @{{value}}
+     </message>
+    </ul>
+    <input type="text" class="form-control" placeholder="Type your message here.." v-model='message' @keyup.enter='send'>
+   </div>
+  </div>
+ </div>
+ <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
