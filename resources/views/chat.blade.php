@@ -6,22 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Document</title>
     <meta name="csrf-token" content="{{csrf_token()}}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <style>
         .list-group{
             overflow-y: scroll;
             height: 200px;
         }
-    </style>
+        </style>
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="row" id="app">
-            <h1>Chat room</h1>
+            <h1 class="mt-2">Chat room</h1>
             <div class="offset-4 col-md-4">
-                <li class="list-group-item active">Chat</li>
+                <li class="list-group-item bg-info p-3 my-3">Chat</li>
                 <ul class="list-group" v-chat-scroll>
-                    <message v-for="value in chat.message">
+                    <message v-for="value,index in chat.message" :key=value.index :color=chat.color[index] :user=chat.user[index]>
                         @{{value}}
                     </message>
                 </ul>

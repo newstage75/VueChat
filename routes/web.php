@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,16 +13,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('chat',function(){
-    return view('chat');
+// Route::get('chat',function(){
+//     return view('chat');
+// });
+
+// chatにアクセスした際に、認証するよう設定
+Route::group(['prefix'=>'/','middleware'=>'auth'],function(){
+    Route::get('chat',[App\Http\Controllers\ChatController::class,'chat']);
+    Route::post('send', [App\Http\Controllers\ChatController::class,'send']);
 });
 
-
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -24,17 +24,13 @@ class ChatEvent implements ShouldBroadcast
      */
     public function __construct($message, User $user)
     {
-        return $this->message = $message;
-        return $this->user = $user;
+        $this->message = $message;
+        $this->user = $user->name;
+        $this->dontBroadcastToCurrentUser();
     }
-
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
+  
     public function broadcastOn()
     {
-        return new PrivateChannel('chat');
+     return new PrivateChannel('chat');
     }
 }
